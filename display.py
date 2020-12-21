@@ -36,6 +36,10 @@ def check_args(settings):
     )
     ag.add_argument("-f", "--fuzz", help="How fuzzy (in percent) the process of red color extraction should be."
          "Higher percentages can improve image quality with low amounts of red in the image.")
+
+    ag.add_argument("-c", "--color", help="Select the color of the image that should be translated"
+         "to red. By default this is 'red'. Options: [black,blue,lime,cyan,red,magenta,yellow,white]")
+
     try:
         args = parser.parse_args()
     except OSError:
@@ -68,8 +72,13 @@ def convert_image(settings):
     if settings["fuzz"]:
         fuzz = str(settings["fuzz"]) + "%"
 
+    if settings["color"]:
+        color = settings["color"]
+    else:
+        color = "red"
+
     cmd_black = ["convert", image, "-resize", res, "-gravity", "center", "-crop", res, "-extent", res, black]
-    cmd_red =   ["convert", image, "-resize", res, "-gravity", "center", "-crop", res, "-extent", res, "-channel", "rgba", "-fuzz", fuzz, "-fill", "none", "+opaque", "red", "-monochrome", "-depth", "4", "-negate", red]
+    cmd_red =   ["convert", image, "-resize", res, "-gravity", "center", "-crop", res, "-extent", res, "-channel", "rgba", "-fuzz", fuzz, "-fill", "none", "+opaque", color, "-monochrome", "-depth", "4", "-negate", red]
 
     if settings["rotate"]:
         rotate = settings["rotate"] 
@@ -85,6 +94,8 @@ def display_image(settings):
     epd = epd12in48b.EPD()
     epd.Init()
     epd.clear()
+    Blackimage = Image.new("1", (epd12in48b.EPD_WIDTH, epd12in48b.EPD_HEIGHT), 255)
+    Redimage = Image.new("1", (epd12in48b.EPD_WIDTH, epd12in48b.EPD_HEIGHT), 255)
     Blackimage = Image.open(settings["black_image"])
     Redimage = Image.open(settings["red_image"])
     epd.display(Blackimage, Redimage)
@@ -95,7 +106,8 @@ def get_settings():
     settings = { "black_image": f"/tmp/black-{rand}.png", 
                  "red_image": f"/tmp/red-{rand}.png",
                  "resolution": "1304x984",
-                 "fuzz": None
+                 "fuzz": None,
+                 "color": None
             }
     return settings
 
