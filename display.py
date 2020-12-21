@@ -77,7 +77,7 @@ def convert_image(settings):
     else:
         color = "red"
 
-    cmd_black = ["convert", image, "-resize", res, "-gravity", "center", "-crop", res, "-extent", res, black]
+    cmd_black = ["convert", image, "-resize", res, "-gravity", "center", "-crop", res, "-extent", res, "-monochrome", black]
     cmd_red =   ["convert", image, "-resize", res, "-gravity", "center", "-crop", res, "-extent", res, "-channel", "rgba", "-fuzz", fuzz, "-fill", "none", "+opaque", color, "-monochrome", "-depth", "4", "-negate", red]
 
     if settings["rotate"]:
