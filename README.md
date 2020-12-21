@@ -18,6 +18,11 @@ The color red is extracted from the original image and drawn separately. This pr
 
 Drawbacks: on a Raspberry Pi 3B+, it takes about 55 seconds for an image to be displayed. The python library and display take about 30 seconds, the rest is for the Imagemagick image processing. 
 
+### Modified library
+
+The python library as supplied by Waveshare and as included in this repository has been modified.
+The modifications make the library less verbose and it won't do a double image conversion to monochrome, improving image quality.
+
 ### Extra example programs
 
 Depending on the application, it may be easier, or more desired to just draw an image programatically using the Python PIL library. Two example programs have been included. 
