@@ -5,12 +5,13 @@ import time
 
 
 imagelist = [
-    {"filename": "flag.jpg", "fuzz": 35},
-    {"filename":"redpainting.jpg", "fuzz": None},
-    {"filename":"mrrobot.jpg", "fuzz": None},
-    {"filename":"street.png", "fuzz": None},
-    {"filename":"St._Paul's_Cathedral_black_white_and_red.jpg", "fuzz": None},
-    {"filename": "banksy01.jpg", "fuzz": 40},
+    {"filename": "test_images/nzflag.svg", "fuzz": None},
+    {"filename":"test_images/redpainting.jpg", "fuzz": None},
+    {"filename":"test_images/redwhiteblack-art.jpg", "fuzz": None},
+    {"filename":"test_images/textile.jpg", "fuzz": None},
+    {"filename":"test_images/stpaul.jpg", "fuzz": None},
+    {"filename": "test_images/banksy.jpg", "fuzz": 40},
+    {"filename": "test_images/art-cropped.jpg", "fuzz": None},
 ]
 
 def run_cmd(cmdline):

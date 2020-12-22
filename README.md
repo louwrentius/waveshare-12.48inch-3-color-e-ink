@@ -27,7 +27,7 @@ Drawbacks: on a Raspberry Pi 3B+, it takes about 55 seconds for an image to be d
 
 You need to install Imagemagick.
 
-    apt install imagemagic
+    apt install imagemagick
 
 ### Modified library
 
