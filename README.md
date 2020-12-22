@@ -18,6 +18,12 @@ The color red is extracted from the original image and drawn separately. This pr
 
 Drawbacks: on a Raspberry Pi 3B+, it takes about 55 seconds for an image to be displayed. The python library and display take about 30 seconds, the rest is for the Imagemagick image processing. 
 
+### Requirements: 
+
+You need to install Imagemagick.
+
+    apt install imagemagic
+
 ### Modified library
 
 The python library as supplied by Waveshare and as included in this repository has been modified.
