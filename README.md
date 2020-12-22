@@ -4,6 +4,11 @@ This tool is written in Python for the [Waveshare 13.48 inch three-color display
 
 [ws]: https://www.waveshare.com/product/displays/e-paper/epaper-1/12.48inch-e-paper-module-b.htm
 
+[![e-paper][image]][large]
+
+[image]: https://louwrentius.com/static/images/epaper/epaper04_small.jpg
+[large]: https://louwrentius.com/static/images/epaper/epaper04_large.jpg
+
 This display supports three colors black, white and red. 
 
 By default, the display needs two images, one in black and white and a second one in red and white. Processing regular images, separating the colors and displaying them is a cumbersome process.
